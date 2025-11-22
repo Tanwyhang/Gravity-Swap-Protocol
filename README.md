@@ -4,6 +4,14 @@
 
 # Gravity Protocol
 
+<p align="center">
+  <img src="asset/Architecture.png" alt="Gravity Protocol Architecture" width="600"/>
+</p>
+
+<p align="center">
+  <img src="asset/GRAVITY abstract.jpg" alt="Gravity Protocol Flowchart" width="600"/>
+</p>
+
 Gravity is a flagship payment protocol that converts any ERC20 into MNEE in a single transaction. Route discovery and quoting happen off-chain for flexibility, but every hop, amount, and fee is revalidated on-chain before settlement. This repo packages the Solidity core, the TypeScript client (`GravitySWAP.ts`), mocks, and deployment tooling.
 
 > Need the deep dive? See `docs/ARCHITECHTURE.md` for diagrams, invariants, and storage layouts.
