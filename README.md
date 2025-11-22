@@ -4,14 +4,6 @@
 
 # Gravity Protocol
 
-<p align="center">
-  <img src="asset/Architecture.png" alt="Gravity Protocol Architecture" width="600"/>
-</p>
-
-<p align="center">
-  <img src="asset/GRAVITY abstract.jpg" alt="Gravity Protocol Flowchart" width="600"/>
-</p>
-
 Gravity is a flagship payment protocol that converts any ERC20 into MNEE in a single transaction. Route discovery and quoting happen off-chain for flexibility, but every hop, amount, and fee is revalidated on-chain before settlement. This repo packages the Solidity core, the TypeScript client (`GravitySWAP.ts`), mocks, and deployment tooling.
 
 
@@ -29,6 +21,10 @@ Gravity is a flagship payment protocol that converts any ERC20 into MNEE in a si
 
 ## Component Stack
 
+<p align="center">
+  <img src="asset/Architecture.png" alt="Gravity Protocol Architecture" width="600"/>
+</p>
+
 | Layer | Artifact | Responsibilities |
 | --- | --- | --- |
 | Settlement & Fees | `GravityPayment.sol` | Custodies funds, revalidates swap paths, charges protocol fees, dispatches swaps, stores immutable receipts. |
@@ -40,6 +36,10 @@ Gravity is a flagship payment protocol that converts any ERC20 into MNEE in a si
 ---
 
 ## Protocol Data Flow
+
+<p align="center">
+  <img src="asset/GRAVITY abstract.jpg" alt="Gravity Protocol Flowchart" width="600"/>
+</p>
 
 1. **Route discovery (off-chain)** – `GravitySWAP.ts` builds a graph from `TokenRouter.getNeighbors`, runs BFS up to `MAX_HOPS`, and prices candidates with `calculateExpectedOutput`.
 2. **Payload formation** – The client clamps slippage, ensures ERC20 approvals, and assembles `(eventId, tokenIn, amountIn, recipient, minMNEEOut, swapPath)`.
